@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/WT_assignment_2/static/css/main.514f6d84.css",
+    "main.js": "/WT_assignment_2/static/js/main.2dd7ab7a.js",
+    "static/js/453.419a5d54.chunk.js": "/WT_assignment_2/static/js/453.419a5d54.chunk.js",
+    "static/media/cbit.jpeg": "/WT_assignment_2/static/media/cbit.c31bff0c1c7cdf12b738.jpeg",
+    "static/media/cbithac.jpeg": "/WT_assignment_2/static/media/cbithac.b946251251813b0b1c3a.jpeg",
+    "static/media/cbit_logo.png": "/WT_assignment_2/static/media/cbit_logo.4150b322a20ae0e4afd4.png",
+    "static/media/graduation.jpeg": "/WT_assignment_2/static/media/graduation.af6a6162b6914d7ea49d.jpeg",
+    "index.html": "/WT_assignment_2/index.html",
+    "main.514f6d84.css.map": "/WT_assignment_2/static/css/main.514f6d84.css.map",
+    "main.2dd7ab7a.js.map": "/WT_assignment_2/static/js/main.2dd7ab7a.js.map",
+    "453.419a5d54.chunk.js.map": "/WT_assignment_2/static/js/453.419a5d54.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.514f6d84.css",
+    "static/js/main.2dd7ab7a.js"
+  ]
+}
