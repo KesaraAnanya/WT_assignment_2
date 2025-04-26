@@ -31,8 +31,9 @@ const AddStudent = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     axios
-      .post("http://localhost:5000/api/students", formData)
+      .post(`${process.env.REACT_APP_API_BASE_URL}/students`, formData)
       .then(() => {
         toast.success("Student added successfully!");
         setFormData({
@@ -59,7 +60,7 @@ const AddStudent = () => {
         <div className="mb-3">
           <label>Student ID</label>
           <input
-            type="text"
+            type="number"
             className="form-control"
             placeholder="Enter Student ID"
             name="studentID"
