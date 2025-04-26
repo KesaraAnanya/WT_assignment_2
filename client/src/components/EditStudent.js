@@ -21,7 +21,7 @@ function EditStudent() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/students/${id}`)
+      .get(`${process.env.REACT_APP_API_BASE_URL}/students/${id}`)
       .then((res) => {
         const formattedData = {
           ...res.data,
@@ -43,7 +43,7 @@ function EditStudent() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:5000/api/students/${id}`, formData)
+      .put(`${process.env.REACT_APP_API_BASE_URL}/students/${id}`, formData)
       .then(() => {
         toast.success('Student updated successfully!');
         navigate('/students');
