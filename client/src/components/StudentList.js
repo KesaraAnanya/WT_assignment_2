@@ -1,36 +1,39 @@
+// src/components/StudentList.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 
 function StudentList() {
   const [students, setStudents] = useState([]);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchStudents();
   }, []);
 
   const fetchStudents = () => {
-    axios.get('http://localhost:5000/api/students')
-      .then(res => setStudents(res.data))
-      .catch(err => console.error(err));
+    axios
+      .get(`${process.env.REACT_APP_API_BASE_URL}/students`)
+      .then((res) => setStudents(res.data))
+      .catch((err) => console.error(err));
   };
 
   const handleDelete = (id, name) => {
     if (window.confirm(`Are you sure you want to delete ${name}?`)) {
-      axios.delete(`http://localhost:5000/api/students/${id}`)
+      axios
+        .delete(`${process.env.REACT_APP_API_BASE_URL}/students/${id}`)
         .then(() => {
           alert(`Deleted ${name} successfully!`);
           fetchStudents();
         })
-        .catch(err => console.error(err));
+        .catch((err) => console.error(err));
     }
   };
 
   return (
     <div className="max-w-6xl mx-auto mt-10">
       <h2 className="text-2xl font-bold mb-4">Student List</h2>
-      
+
       <Link
         to="/add"
         className="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mb-4"
@@ -50,14 +53,20 @@ function StudentList() {
           </tr>
         </thead>
         <tbody>
-          {students.map(student => (
+          {students.map((student) => (
             <tr key={student._id} className="text-center">
               <td className="p-2 border">{student.studentID}</td>
-              <td className="p-2 border">{student.firstName} {student.lastName}</td>
+              <td className="p-2 border">
+                {student.firstName} {student.lastName}
+              </td>
               <td className="p-2 border">{student.email}</td>
               <td className="p-2 border">{student.department}</td>
               <td className="p-2 border">
-                <span className={`font-semibold ${student.isActive ? 'text-green-600' : 'text-red-600'}`}>
+                <span
+                  className={`font-semibold ${
+                    student.isActive ? 'text-green-600' : 'text-red-600'
+                  }`}
+                >
                   {student.isActive ? 'Active' : 'Inactive'}
                 </span>
               </td>
@@ -69,7 +78,7 @@ function StudentList() {
                   >
                     Edit
                   </button>
-                  <br/>
+                  <br />
                   <br />
                   <button
                     onClick={() => handleDelete(student._id, `${student.firstName} ${student.lastName}`)}
@@ -86,5 +95,4 @@ function StudentList() {
     </div>
   );
 }
-
 export default StudentList;
