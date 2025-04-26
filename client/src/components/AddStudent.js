@@ -17,21 +17,18 @@ const AddStudent = () => {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]:
-        type === "checkbox"
-          ? checked
-          : name === "studentID" || name === "enrollmentYear"
-          ? Number(value)
-          : value,
+      [name]: type === "checkbox"
+        ? checked
+        : name === "studentID" || name === "enrollmentYear"
+        ? Number(value)
+        : value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     axios
       .post(`${process.env.REACT_APP_API_BASE_URL}/students`, formData)
       .then(() => {
